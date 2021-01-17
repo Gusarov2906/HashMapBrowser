@@ -1,70 +1,101 @@
 package MainPackage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
 public class HashMapCreator {
-    public static  HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, String>>>>>>>> createHashmap()
+
+    public static HashMapStruct createHashmap(int sizeOfHM)
     {
-        int size0 = new Random().nextInt(6);
+
+        int size0 = new Random().nextInt(6) + 1;
+        if(sizeOfHM < 8)
+            size0 = 1;
         HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, String>>>>>>>> hashMap =
                 new HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, String>>>>>>>>();
 
 
         for(int i0 = 0; i0 < size0; i0++)
         {
-            int size1 = new Random().nextInt(10) + 1;
+            int size1 = new Random().nextInt(10) + 2;
+            if(sizeOfHM < 7)
+                size1 = 1;
             HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, String>>>>>>> tmp0 =
                     new HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, String>>>>>>>();
             for(int i1 = 0; i1 < size1; i1++)
             {
-                int size2 = new Random().nextInt(10) + 1;
+                int size2 = new Random().nextInt(10) + 2;
+                if(sizeOfHM < 7)
+                    size2 = 1;
                 HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, String>>>>>> tmp1 =
                         new HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, String>>>>>>();
                 for(int i2 = 0; i2 < size2; i2++)
                 {
-                    int size3 = new Random().nextInt(10) + 1;
+                    int size3 = new Random().nextInt(10) + 2;
+                    if(sizeOfHM < 6)
+                        size3 = 1;
                     HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, String>>>>> tmp2 =
                             new HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, String>>>>>();
                     for (int i3 = 0; i3 < size3; i3++)
                     {
-                        int size4 = new Random().nextInt(10) + 1;
+                        int size4 = new Random().nextInt(10) + 2;
+                        if(sizeOfHM < 5)
+                            size4 = 1;
                         HashMap<String, HashMap<String, HashMap<String, HashMap<String, String>>>> tmp3 =
                                 new HashMap<String,  HashMap<String, HashMap<String, HashMap<String, String>>>>();
                         for (int i4 = 0; i4 < size4; i4++)
                         {
-                            int size5 = new Random().nextInt(10) + 1;
+                            int size5 = new Random().nextInt(10) + 2;
+                            if(sizeOfHM < 4)
+                                size5 = 1;
                             HashMap<String, HashMap<String, HashMap<String, String>>> tmp4 =
                                     new HashMap<String,  HashMap<String, HashMap<String, String>>>();
                             for (int i5 = 0; i5 < size5; i5++)
                             {
-                                int size6 = new Random().nextInt(10) + 1;
+                                int size6 = new Random().nextInt(10) + 2;
+                                if(sizeOfHM < 3)
+                                    size6 = 1;
                                 HashMap<String, HashMap<String, String>> tmp5 =
                                         new HashMap<String,  HashMap<String, String>>();
                                 for (int i6 = 0; i6 < size6; i6++)
                                 {
-                                    int size7 = new Random().nextInt(25);
+                                    int size7 = new Random().nextInt(25) + 2;
+                                    if(sizeOfHM < 2)
+                                        size7 = 1;
                                     HashMap<String, String> tmp6 =
                                             new HashMap<String, String>();
                                     for (int i7 = 0; i7 < size7; i7++)
                                     {
-                                        tmp6.put(Integer.toString(i7), Integer.toString(new Random().nextInt(100)));
+                                        tmp6.put(Integer.toString(i7), Integer.toString(new Random().nextInt(10000000)));
                                     }
-                                    tmp5.put(Integer.toString(i6),tmp6);
+                                    tmp5.put(Integer.toString((i6)*1000000),tmp6);
                                 }
-                                tmp4.put(Integer.toString(i5),tmp5);
+                                tmp4.put(Integer.toString((i5)*100000),tmp5);
                             }
-                            tmp3.put(Integer.toString(i4),tmp4);
+                            tmp3.put(Integer.toString((i4)*10000),tmp4);
                         }
-                        tmp2.put(Integer.toString(i3),tmp3);
+                        tmp2.put(Integer.toString((i3)*1000),tmp3);
                     }
-                    tmp1.put(Integer.toString(i2),tmp2);
+                    tmp1.put(Integer.toString((i2)*100),tmp2);
                 }
-                tmp0.put(Integer.toString(i1),tmp1);
+                tmp0.put(Integer.toString((i1)*10),tmp1);
             }
             hashMap.put(Integer.toString(i0),tmp0);
         }
         //System.out.println(hashMap.toString());
-        return hashMap;
+        HashMapStruct ret = new HashMapStruct();
+        ret.hashMap = hashMap;
+        ret.size = sizeOfHM;
+        return ret;
+    }
+
+    public static boolean notIn(ArrayList<String> arr, String str)
+    {
+        for (String s : arr) {
+            if (s.equals(str))
+                return false;
+        }
+        return true;
     }
 }
