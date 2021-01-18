@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
@@ -17,9 +18,10 @@
          <items>
             <MenuButton fx:id="MenuButtonId" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" text="File">
               <items>
-                <MenuItem fx:id="OpenDataButtonId" mnemonicParsing="false" text="Open data" />
-                <MenuItem fx:id="LoadChainButtonId" mnemonicParsing="false" text="Load chain" />
-                  <MenuItem fx:id="SaveChainButtonId" mnemonicParsing="false" text="Save chain" />
+                <MenuItem fx:id="RandomDataButtonId" mnemonicParsing="false" onAction="#randomDataButtonClicked" text="Random data" />
+                  <MenuItem fx:id="OpenDataButtonId" mnemonicParsing="false" onAction="#openDataButtonClicked" text="Open data" />
+                <MenuItem fx:id="LoadChainButtonId" mnemonicParsing="false" onAction="#loadDataButtonClicked" text="Load chain" />
+                  <MenuItem fx:id="SaveChainButtonId" mnemonicParsing="false" onAction="#saveDataButtonClicked" text="Save chain" />
               </items>
                <font>
                   <Font name="Century Gothic" size="14.0" />
@@ -44,55 +46,60 @@
           <RowConstraints maxHeight="743.4" minHeight="10.0" prefHeight="694.3999839782715" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ListView fx:id="List0Id" onMouseClicked="#clicked0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
-            <ListView fx:id="List1Id" onMouseClicked="#clicked1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ListView fx:id="List2Id" onMouseClicked="#clicked2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <ListView fx:id="List3Id" onMouseClicked="#clicked3" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ListView fx:id="List8Id" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+            <ListView fx:id="List7Id" onMouseClicked="#clicked7" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ListView fx:id="List6Id" onMouseClicked="#clicked6" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ListView fx:id="List5Id" onMouseClicked="#clicked5" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <ListView fx:id="List4Id" onMouseClicked="#clicked4" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <ListView fx:id="List5Id" onMouseClicked="#clicked5" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <ListView fx:id="List6Id" onMouseClicked="#clicked6" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-            <ListView fx:id="List7Id" onMouseClicked="#clicked7" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-            <ListView fx:id="List8Id" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-            <TextField fx:id="Filter0Id" alignment="CENTER" onKeyTyped="#Filter0TextChanged" onMouseClicked="#Filter0Clicked" text="Filter">
+            <ListView fx:id="List3Id" onMouseClicked="#clicked3" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <ListView fx:id="List2Id" onMouseClicked="#clicked2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <ListView fx:id="List1Id" onMouseClicked="#clicked1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <ListView fx:id="List0Id" onMouseClicked="#clicked0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <TextField fx:id="Filter7Id" alignment="CENTER" onKeyTyped="#Filter7TextChanged" onMouseClicked="#Filter7Clicked" text="Filter" GridPane.columnIndex="1">
             <font>
                 <Font name="Century Gothic" size="14.0" />
             </font>
             </TextField>
-            <TextField fx:id="Filter1Id" alignment="CENTER" onInputMethodTextChanged="#Filter1TextChanged" onKeyTyped="#Filter1TextChanged" onMouseClicked="#Filter1Clicked" text="Filter" GridPane.columnIndex="1">
+            <TextField fx:id="Filter6Id" alignment="CENTER" onKeyTyped="#Filter6TextChanged" onMouseClicked="#Filter6Clicked" text="Filter" GridPane.columnIndex="2">
             <font>
                 <Font name="Century Gothic" size="14.0" />
             </font>
              </TextField>
-            <TextField fx:id="Filter2Id" alignment="CENTER" onInputMethodTextChanged="#Filter2TextChanged" onKeyTyped="#Filter2TextChanged" onMouseClicked="#Filter2Clicked" text="Filter" GridPane.columnIndex="2">
+            <TextField fx:id="Filter5Id" alignment="CENTER" onKeyTyped="#Filter5TextChanged" onMouseClicked="#Filter5Clicked" text="Filter" GridPane.columnIndex="3">
             <font>
                 <Font name="Century Gothic" size="14.0" />
             </font>
              </TextField>
-            <TextField fx:id="Filter3Id" alignment="CENTER" onInputMethodTextChanged="#Filter3TextChanged" onKeyTyped="#Filter3TextChanged" onMouseClicked="#Filter3Clicked" text="Filter" GridPane.columnIndex="3">
+            <TextField fx:id="Filter4Id" alignment="CENTER" onKeyTyped="#Filter4TextChanged" onMouseClicked="#Filter4Clicked" text="Filter" GridPane.columnIndex="4">
             <font>
                 <Font name="Century Gothic" size="14.0" />
             </font>
             </TextField>
-            <TextField fx:id="Filter4Id" alignment="CENTER" onInputMethodTextChanged="#Filter4TextChanged" onKeyTyped="#Filter4TextChanged" onMouseClicked="#Filter4Clicked" text="Filter" GridPane.columnIndex="4">
+            <TextField fx:id="Filter3Id" alignment="CENTER" onKeyTyped="#Filter3TextChanged" onMouseClicked="#Filter3Clicked" text="Filter" GridPane.columnIndex="5">
             <font>
                 <Font name="Century Gothic" size="14.0" />
             </font>
             </TextField>
-            <TextField fx:id="Filter5Id" alignment="CENTER" onInputMethodTextChanged="#Filter5TextChanged" onKeyTyped="#Filter5TextChanged" onMouseClicked="#Filter5Clicked" text="Filter" GridPane.columnIndex="5">
+            <TextField fx:id="Filter2Id" alignment="CENTER" onKeyTyped="#Filter2TextChanged" onMouseClicked="#Filter2Clicked" text="Filter" GridPane.columnIndex="6">
             <font>
                 <Font name="Century Gothic" size="14.0" />
             </font>
             </TextField>
-            <TextField fx:id="Filter6Id" alignment="CENTER" onInputMethodTextChanged="#Filter6TextChanged" onKeyTyped="#Filter6TextChanged" onMouseClicked="#Filter6Clicked" text="Filter" GridPane.columnIndex="6">
+            <TextField fx:id="Filter1Id" alignment="CENTER" onKeyTyped="#Filter1TextChanged" onMouseClicked="#Filter1Clicked" text="Filter" GridPane.columnIndex="7">
             <font>
                 <Font name="Century Gothic" size="14.0" />
             </font>
             </TextField>
-            <TextField fx:id="Filter7Id" alignment="CENTER" onInputMethodTextChanged="#Filter7TextChanged" onKeyTyped="#Filter7TextChanged" onMouseClicked="#Filter7Clicked" text="Filter" GridPane.columnIndex="7">
+            <TextField fx:id="Filter0Id" alignment="CENTER" onKeyTyped="#Filter0TextChanged" onMouseClicked="#Filter0Clicked" text="Filter" GridPane.columnIndex="8">
             <font>
                 <Font name="Century Gothic" size="14.0" />
             </font>
             </TextField>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="135.0" text="Value">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>
