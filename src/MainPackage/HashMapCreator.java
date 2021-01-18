@@ -109,12 +109,22 @@ public class HashMapCreator {
         return ret;
     }
 
-    public static boolean notIn(ArrayList<String> arr, String str)
+    public static boolean In(ArrayList<String> arr, String str)
     {
         for (String s : arr) {
             if (s.equals(str))
-                return false;
+                return true;
         }
-        return true;
+        return false;
+    }
+
+    public static ArrayList<String> arrayStartsWith(ArrayList<String> arr,String str)
+    {
+        ArrayList<String> res = new ArrayList<String>();
+        for (String s : arr) {
+            if (s.startsWith(str))
+                res.add(s);
+        }
+        return  res;
     }
 }

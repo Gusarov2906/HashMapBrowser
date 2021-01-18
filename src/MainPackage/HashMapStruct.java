@@ -1,8 +1,10 @@
 package MainPackage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class HashMapStruct {
     public HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, String>>>>>>>> hashMap;
     public int size;
+    public ArrayList<String> keysChain;
 }
