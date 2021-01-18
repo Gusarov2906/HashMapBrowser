@@ -8,7 +8,6 @@
     <content url="file://$MODULE_DIR$/../openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" />
     <orderEntry type="jdk" jdkName="14" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="javafx-sdk-11.0" level="project" />
     <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
