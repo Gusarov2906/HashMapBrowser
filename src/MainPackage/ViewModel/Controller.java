@@ -18,8 +18,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Controller {
+/**
+ * Class to interact with MainWindow.fxml
+ */
 
+public class Controller {
+    final private int DefSize = 7;
     public static HashMapStruct hashMapStruct;
     public static String ListStr0 = "0";
     public static String ListStr1 = "0";
@@ -106,6 +110,10 @@ public class Controller {
     @FXML
     private TextField Filter7Id;
 
+    /**
+     * Method starts when window created
+     */
+
     @FXML
     public void initialize()
     {
@@ -118,8 +126,13 @@ public class Controller {
         List6Id.getItems().clear();
         List7Id.getItems().clear();
         List8Id.getItems().clear();
-
     }
+
+    /**
+     * Method which triggered when load button pressed
+     * @param event - load button pressed
+     */
+
     @FXML
     void loadDataButtonClicked(ActionEvent event) {
         if (hashMapStruct != null) {
@@ -137,38 +150,45 @@ public class Controller {
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("hmd", "*.hmd"));
         fileChooser.setInitialDirectory(new File("E:\\EclipseWorkspace\\HashMapBrowser\\data"));
         File dir = fileChooser.showOpenDialog(Main.scene.getWindow());
-        hashMapStruct = FileLoaderAndSaver.loadFromFile(dir.getPath());
-        ListStr0 = hashMapStruct.ListStr0;
-        ListStr1 = hashMapStruct.ListStr1;
-        ListStr2 = hashMapStruct.ListStr2;
-        ListStr3 = hashMapStruct.ListStr3;
-        ListStr4 = hashMapStruct.ListStr4;
-        ListStr5 = hashMapStruct.ListStr5;
-        ListStr6 = hashMapStruct.ListStr6;
-        ListStr7 = hashMapStruct.ListStr7;
+        if (dir != null) {
+            hashMapStruct = FileLoaderAndSaver.loadFromFile(dir.getPath());
+            ListStr0 = hashMapStruct.ListStr0;
+            ListStr1 = hashMapStruct.ListStr1;
+            ListStr2 = hashMapStruct.ListStr2;
+            ListStr3 = hashMapStruct.ListStr3;
+            ListStr4 = hashMapStruct.ListStr4;
+            ListStr5 = hashMapStruct.ListStr5;
+            ListStr6 = hashMapStruct.ListStr6;
+            ListStr7 = hashMapStruct.ListStr7;
 
-        fillTablesData();
+            fillTablesData();
 
-        List0Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.keySet()));
-        List0Id.getSelectionModel().select(ListStr0);
-        List1Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).keySet()));
-        List1Id.getSelectionModel().select(ListStr1);
-        List2Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).keySet()));
-        List2Id.getSelectionModel().select(ListStr2);
-        List3Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).keySet()));
-        List3Id.getSelectionModel().select(ListStr3);
-        List4Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).keySet()));
-        List4Id.getSelectionModel().select(ListStr4);
-        List5Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).get(ListStr4).keySet()));
-        List5Id.getSelectionModel().select(ListStr5);
-        List6Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).get(ListStr4).get(ListStr5).keySet()));
-        List6Id.getSelectionModel().select(ListStr6);
-        List7Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).get(ListStr4).get(ListStr5).get(ListStr6).keySet()));
-        List7Id.getSelectionModel().select(ListStr7);
-        List8Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).get(ListStr4).get(ListStr5).get(ListStr6).get(ListStr7)));
-        List8Id.getSelectionModel().select(ListStr7);
+            List0Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.keySet()));
+            List0Id.getSelectionModel().select(ListStr0);
+            List1Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).keySet()));
+            List1Id.getSelectionModel().select(ListStr1);
+            List2Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).keySet()));
+            List2Id.getSelectionModel().select(ListStr2);
+            List3Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).keySet()));
+            List3Id.getSelectionModel().select(ListStr3);
+            List4Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).keySet()));
+            List4Id.getSelectionModel().select(ListStr4);
+            List5Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).get(ListStr4).keySet()));
+            List5Id.getSelectionModel().select(ListStr5);
+            List6Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).get(ListStr4).get(ListStr5).keySet()));
+            List6Id.getSelectionModel().select(ListStr6);
+            List7Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).get(ListStr4).get(ListStr5).get(ListStr6).keySet()));
+            List7Id.getSelectionModel().select(ListStr7);
+            List8Id.getItems().addAll(FXCollections.observableArrayList(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).get(ListStr4).get(ListStr5).get(ListStr6).get(ListStr7)));
+            List8Id.getSelectionModel().select(ListStr7);
 
+        }
     }
+
+    /**
+     * Method which triggered when open data button pressed
+     * @param event - open data button pressed
+     */
 
     @FXML
     void openDataButtonClicked(ActionEvent event) {
@@ -187,13 +207,18 @@ public class Controller {
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("hmd", "*.hmd"));
         fileChooser.setInitialDirectory(new File("E:\\EclipseWorkspace\\HashMapBrowser\\data"));
         File dir = fileChooser.showOpenDialog(Main.scene.getWindow());
-        hashMapStruct = FileLoaderAndSaver.loadFromFile(dir.getPath());
-        fillTablesData();
+        if(dir != null) {
+            hashMapStruct = FileLoaderAndSaver.loadFromFile(dir.getPath());
+            fillTablesData();
+        }
     }
 
-    @FXML
-    void saveDataButtonClicked(ActionEvent event) {
+    /**
+     * Method to save current HashMapStruct
+     */
 
+    public static void saveData()
+    {
         hashMapStruct.ListStr0 = ListStr0;
         hashMapStruct.ListStr1 = ListStr1;
         hashMapStruct.ListStr2 = ListStr2;
@@ -208,8 +233,24 @@ public class Controller {
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("hmd", "*.hmd"));
         fileChooser.setInitialDirectory(new File("E:\\EclipseWorkspace\\HashMapBrowser\\data"));
         File dir = fileChooser.showSaveDialog(Main.scene.getWindow());
+        if(dir!=null)
         FileLoaderAndSaver.saveToFile(dir.getPath(),hashMapStruct);
     }
+
+    /**
+     * Method which triggered when save data button pressed
+     * @param event - save data button pressed
+     */
+
+    @FXML
+    void saveDataButtonClicked(ActionEvent event) {
+
+        saveData();
+    }
+
+    /**
+     * Accessory method to prepare window for data
+     */
 
     void fillTablesData()
     {
@@ -380,15 +421,24 @@ public class Controller {
         }
     }
 
+    /**
+     * Method which triggered when random data button pressed
+     * @param event - random data button pressed
+     */
+
     @FXML
     void randomDataButtonClicked(ActionEvent event) {
 
         //hashMap.values().add(new HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, HashMap<String, String>>>>>>>());
-        hashMapStruct = HashMapCreator.createHashmap(3);
+        hashMapStruct = HashMapCreator.createHashmap(DefSize);
         fillTablesData();
     }
 
 
+    /**
+     * Method which triggered when ListView0 clicked
+     * @param event -  ListView0 clicked
+     */
 
     @FXML
     public void clicked0(MouseEvent event) {
@@ -408,6 +458,11 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Method which triggered when ListView1 clicked
+     * @param event -  ListView1 clicked
+     */
     @FXML
     public void clicked1(MouseEvent event) {
     if (hashMapStruct != null) {
@@ -428,6 +483,12 @@ public class Controller {
         }
     }
 
+
+    /**
+     * Method which triggered when ListView2 clicked
+     * @param event -  ListView2 clicked
+     */
+
     @FXML
     public void clicked2(MouseEvent event) {
         if(hashMapStruct != null)
@@ -447,6 +508,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Method which triggered when ListView3 clicked
+     * @param event -  ListView3 clicked
+     */
+
     @FXML
     public void clicked3(MouseEvent event) {
             if(hashMapStruct != null) {
@@ -464,6 +530,11 @@ public class Controller {
                 }
             }
     }
+
+    /**
+     * Method which triggered when ListView4 clicked
+     * @param event -  ListView4 clicked
+     */
 
     @FXML
     public void clicked4(MouseEvent event) {
@@ -483,6 +554,11 @@ public class Controller {
             }
     }
 
+    /**
+     * Method which triggered when ListView5 clicked
+     * @param event -  ListView5 clicked
+     */
+
     @FXML
     public void clicked5(MouseEvent event) {
             if(hashMapStruct != null) {
@@ -499,6 +575,12 @@ public class Controller {
                 }
             }
     }
+
+    /**
+     * Method which triggered when ListView6 clicked
+     * @param event -  ListView6 clicked
+     */
+
     @FXML
     public void clicked6(MouseEvent event) {
             if(hashMapStruct != null) {
@@ -516,6 +598,11 @@ public class Controller {
 
     }
 
+    /**
+     * Method which triggered when ListView7 clicked
+     * @param event -  ListView7 clicked
+     */
+
     @FXML
     public void clicked7(MouseEvent event) {
         if(hashMapStruct != null) {
@@ -530,6 +617,11 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Method which triggered when any keyboard button pressed when selected filter0
+     * @param event -  any keyboard button pressed when selected filter0
+     */
 
     @FXML
     void Filter0TextChanged(KeyEvent event) {
@@ -546,6 +638,12 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Method which triggered when Filter0 clicked
+     * @param event -  Filter0 clicked
+     */
+
     @FXML
     void Filter0Clicked(MouseEvent event) {
         Filter0Id.setText("");
@@ -553,6 +651,11 @@ public class Controller {
         if(hashMapStruct != null)
         List0Id.getItems().addAll(hashMapStruct.hashMap.keySet());
     }
+
+    /**
+     * Method which triggered when any keyboard button pressed when selected filter1
+     * @param event -  any keyboard button pressed when selected filter1
+     */
 
     @FXML
     void Filter1TextChanged(KeyEvent event) {
@@ -569,6 +672,11 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Method which triggered when Filter1 clicked
+     * @param event -  Filter1 clicked
+     */
 
     @FXML
     void Filter1Clicked(MouseEvent event) {
@@ -592,6 +700,12 @@ public class Controller {
         if (HashMapCreator.In(new ArrayList<String>(hashMapStruct.hashMap.keySet()),ListStr0))
             List1Id.getItems().addAll(hashMapStruct.hashMap.get(ListStr0).keySet());
     }
+
+    /**
+     * Method which triggered when any keyboard button pressed when selected filter2
+     * @param event -  any keyboard button pressed when selected filter2
+     */
+
     @FXML
     void Filter2TextChanged(KeyEvent event) {
         String filter = Filter2Id.getText();
@@ -607,6 +721,12 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Method which triggered when Filter2 clicked
+     * @param event -  Filter2 clicked
+     */
+
     @FXML
     void Filter2Clicked(MouseEvent event) {
         Filter2Id.setText("");
@@ -628,6 +748,12 @@ public class Controller {
         if (HashMapCreator.In(new ArrayList<String>(hashMapStruct.hashMap.get(ListStr0).keySet()),ListStr1))
             List2Id.getItems().addAll(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).keySet());
     }
+
+    /**
+     * Method which triggered when any keyboard button pressed when selected filter3
+     * @param event -  any keyboard button pressed when selected filter3
+     */
+
     @FXML
     void Filter3TextChanged(KeyEvent event) {
         String filter = Filter3Id.getText();
@@ -644,6 +770,12 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Method which triggered when Filter3 clicked
+     * @param event -  Filter3 clicked
+     */
+
     @FXML
     void Filter3Clicked(MouseEvent event) {
         Filter3Id.setText("");
@@ -663,6 +795,13 @@ public class Controller {
         if (HashMapCreator.In(new ArrayList<String>(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).keySet()),ListStr2))
             List3Id.getItems().addAll(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).keySet());
     }
+
+    /**
+     * Method which triggered when any keyboard button pressed when selected filter4
+     * @param event -  any keyboard button pressed when selected filter4
+     */
+
+
     @FXML
     void Filter4TextChanged(KeyEvent event) {
         String filter = Filter4Id.getText();
@@ -679,6 +818,12 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Method which triggered when Filter4 clicked
+     * @param event -  Filter4 clicked
+     */
+
     @FXML
     void Filter4Clicked(MouseEvent event) {
         Filter4Id.setText("");
@@ -696,6 +841,12 @@ public class Controller {
         if (HashMapCreator.In(new ArrayList<String>(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).keySet()),ListStr3))
             List4Id.getItems().addAll(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).keySet());
     }
+
+    /**
+     * Method which triggered when any keyboard button pressed when selected filter5
+     * @param event -  any keyboard button pressed when selected filter5
+     */
+
     @FXML
     void Filter5TextChanged(KeyEvent event) {
         String filter = Filter5Id.getText();
@@ -712,6 +863,12 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Method which triggered when Filter5 clicked
+     * @param event -  Filter5 clicked
+     */
+
     @FXML
     void Filter5Clicked(MouseEvent event) {
         Filter5Id.setText("");
@@ -727,6 +884,12 @@ public class Controller {
         if (HashMapCreator.In(new ArrayList<String>(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).keySet()),ListStr4))
             List5Id.getItems().addAll(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).get(ListStr4).keySet());
     }
+
+    /**
+     * Method which triggered when any keyboard button pressed when selected filter6
+     * @param event -  any keyboard button pressed when selected filter6
+     */
+
     @FXML
     void Filter6TextChanged(KeyEvent event) {
         String filter = Filter6Id.getText();
@@ -743,6 +906,12 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Method which triggered when Filter6 clicked
+     * @param event -  Filter6 clicked
+     */
+
     @FXML
     void Filter6Clicked(MouseEvent event) {
         Filter6Id.setText("");
@@ -756,6 +925,12 @@ public class Controller {
         if (HashMapCreator.In(new ArrayList<String>(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).get(ListStr4).keySet()),ListStr5))
             List6Id.getItems().addAll(hashMapStruct.hashMap.get(ListStr0).get(ListStr1).get(ListStr2).get(ListStr3).get(ListStr4).get(ListStr5).keySet());
     }
+
+    /**
+     * Method which triggered when any keyboard button pressed when selected filter7
+     * @param event -  any keyboard button pressed when selected filter7
+     */
+
     @FXML
     void Filter7TextChanged(KeyEvent event) {
         String filter = Filter7Id.getText();
@@ -772,6 +947,12 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Method which triggered when Filter7 clicked
+     * @param event -  Filter7 clicked
+     */
+
     @FXML
     void Filter7Clicked(MouseEvent event) {
         Filter7Id.setText("");

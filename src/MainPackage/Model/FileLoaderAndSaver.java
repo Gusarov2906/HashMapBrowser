@@ -2,8 +2,16 @@ package MainPackage.Model;
 
 import java.io.*;
 
+/**
+ * Class with methods to work with file
+ */
 public class FileLoaderAndSaver {
 
+    /**
+     * Method to load HashMapStruct form file
+     * @param fileName - name of file(path)
+     * @return loaded HashMapStruct
+     */
 
     public static HashMapStruct loadFromFile(String fileName)
     {
@@ -22,7 +30,11 @@ public class FileLoaderAndSaver {
         return hashMapStruct;
     }
 
-
+    /**
+     * Method to save HashMapStruct to file
+     * @param fileName - name of file(path)
+     * @param hashMapStruct - HashMapStruct you want to save
+     */
 
     public static void saveToFile(String fileName, HashMapStruct hashMapStruct)
     {

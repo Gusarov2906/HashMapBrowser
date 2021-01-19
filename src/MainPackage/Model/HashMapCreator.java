@@ -4,7 +4,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+/**
+ * Class have methods to create and work with HashMapStruct
+ */
 public class HashMapCreator {
+
+    /**
+     * Method create random HashMapStruct
+     * @param sizeOfHM - size of HashMapStruct
+     * @return new generated HashMapStruct
+     */
 
     public static HashMapStruct createHashmap(int sizeOfHM)
     {
@@ -109,6 +118,13 @@ public class HashMapCreator {
         return ret;
     }
 
+    /**
+     * Method to check presence in the ArrayList specific string
+     * @param arr - arraylist with strings
+     * @param str - specific string
+     * @return bool result
+     */
+
     public static boolean In(ArrayList<String> arr, String str)
     {
         for (String s : arr) {
@@ -118,6 +134,12 @@ public class HashMapCreator {
         return false;
     }
 
+    /**
+     * Method to check presence in the ArrayList string with starts with like specific string
+     * @param arr- arraylist with strings
+     * @param str- specific string
+     * @return - arraylist with matches
+     */
     public static ArrayList<String> arrayStartsWith(ArrayList<String> arr,String str)
     {
         ArrayList<String> res = new ArrayList<String>();
