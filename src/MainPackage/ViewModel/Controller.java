@@ -23,7 +23,7 @@ import java.util.HashMap;
  */
 
 public class Controller {
-    final private int DefSize = 7;
+    final private int DefSize = 8;
     public static HashMapStruct hashMapStruct;
     public static String ListStr0 = "0";
     public static String ListStr1 = "0";
@@ -401,6 +401,7 @@ public class Controller {
                 List1Id.getItems().addAll(tmp);
             }
             case 8 -> {
+                Main.scene.getWindow().setWidth(1200);
                 List0Id.setVisible(true);
                 Filter0Id.setVisible(true);
                 List1Id.setVisible(true);
