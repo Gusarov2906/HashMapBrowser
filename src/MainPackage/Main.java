@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     public static Scene scene;
     public KeyCombination ctrlS = KeyCodeCombination.keyCombination("Ctrl+S");
+    public KeyCombination ctrlO = KeyCodeCombination.keyCombination("Ctrl+O");
     /**
      * Method to start application
      * @param primaryStage- main stage of program
@@ -27,7 +28,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("View/MainWindow.fxml"));
         primaryStage.setTitle("HashMapBrowser");
         scene = new Scene(root, 1200, 770);
-        scene.setOnKeyPressed(event->{if (ctrlS.match(event)) {
+        scene.setOnKeyPressed(event->{if (ctrlS.match(event)||ctrlO.match(event)) {
 
                if (ctrlS.match(event)) {
                    if(Controller.hashMapStruct != null)
@@ -36,6 +37,10 @@ public class Main extends Application {
                    }
 
                }
+            if (ctrlO.match(event)) {
+
+                Controller.openData();
+            }
         }
         });
         primaryStage.setScene(scene);

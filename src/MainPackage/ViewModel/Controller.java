@@ -186,6 +186,31 @@ public class Controller {
     }
 
     /**
+     * Method to open HashMapStruct
+     */
+    public static void openData()
+    {
+        if (hashMapStruct != null) {
+            hashMapStruct.ListStr0 = "0";
+            hashMapStruct.ListStr1 = "0";
+            hashMapStruct.ListStr2 = "0";
+            hashMapStruct.ListStr3 = "0";
+            hashMapStruct.ListStr4 = "0";
+            hashMapStruct.ListStr5 = "0";
+            hashMapStruct.ListStr6 = "0";
+            hashMapStruct.ListStr7 = "0";
+        }
+        final FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open data");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("hmd", "*.hmd"));
+        fileChooser.setInitialDirectory(new File("E:\\EclipseWorkspace\\HashMapBrowser\\data"));
+        File dir = fileChooser.showOpenDialog(Main.scene.getWindow());
+        if(dir != null) {
+            hashMapStruct = FileLoaderAndSaver.loadFromFile(dir.getPath());
+            //fillTablesData();
+        }
+    }
+    /**
      * Method which triggered when open data button pressed
      * @param event - open data button pressed
      */
@@ -211,6 +236,14 @@ public class Controller {
             hashMapStruct = FileLoaderAndSaver.loadFromFile(dir.getPath());
             fillTablesData();
         }
+        ListStr0 = hashMapStruct.ListStr0;
+        ListStr1 = hashMapStruct.ListStr1;
+        ListStr2 = hashMapStruct.ListStr2;
+        ListStr3 = hashMapStruct.ListStr3;
+        ListStr4 = hashMapStruct.ListStr4;
+        ListStr5 = hashMapStruct.ListStr5;
+        ListStr6 = hashMapStruct.ListStr6;
+        ListStr7 = hashMapStruct.ListStr7;
     }
 
     /**
@@ -252,7 +285,7 @@ public class Controller {
      * Accessory method to prepare window for data
      */
 
-    void fillTablesData()
+    public void fillTablesData()
     {
         List0Id.getItems().clear();
         List1Id.getItems().clear();
@@ -263,6 +296,9 @@ public class Controller {
         List6Id.getItems().clear();
         List7Id.getItems().clear();
         List8Id.getItems().clear();
+
+
+
 
         int size = hashMapStruct.size;
         ObservableList<String> tmp;
