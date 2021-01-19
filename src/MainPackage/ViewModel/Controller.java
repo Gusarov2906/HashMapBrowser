@@ -1,12 +1,13 @@
-package MainPackage;
-import javafx.beans.binding.StringBinding;
+package MainPackage.ViewModel;
+import MainPackage.Model.FileLoaderAndSaver;
+import MainPackage.Model.HashMapCreator;
+import MainPackage.Model.HashMapStruct;
+import MainPackage.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableSet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -16,8 +17,6 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Controller {
 
